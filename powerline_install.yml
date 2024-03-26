@@ -1,0 +1,32 @@
+---
+- name: EPEL install
+  hosts: localhost
+  roles:
+    - { role: geerlingguy.repo-epel, when: ansible_os_family == 'RedHat' }
+  become: true
+  tags: epel
+
+- hosts: localhost
+  tasks:
+    - name: Installing Dependencies
+      ansible.builtin.yum:
+        name: "{{ item }}"
+        update_cache: yes
+        state: present
+      with_items:
+        - python3-pip
+        - git
+        - powerline
+        - powerline-fonts
+      become: true
+
+    - name: Create .bashrc, .vimrc, and .screenrc
+      template:
+        src: '{{ item.src }}'
+        dest: '{{ item.dest }}'
+        backup: true
+      loop:
+        - { src: 'templates/bashrc.j2', dest: '~/.bashrc' }
+        - { src: 'templates/vimrc.j2', dest: '~/.vimrc' }
+        - { src: 'templates/screenrc.j2', dest: '~/.screenrc' }
+      tags: dotfiles

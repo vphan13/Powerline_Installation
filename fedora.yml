@@ -1,0 +1,13 @@
+---
+- name: Installing Dependencies
+  ansible.builtin.yum:
+    name: "{{ item }}"
+    update_cache: yes
+    state: present
+  with_items:
+    - python3-pip
+    - git
+    - powerline
+    - powerline-fonts
+  become: true
+
