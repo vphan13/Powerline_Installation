@@ -18,14 +18,15 @@ powerline_screenrc
 * geerlingguy.repo-epel
 
 To use the ansible playbook powerline_install.yml:
-On Fedora systems
+Install the required role first
 
 ```
-ansible-playbook powerline_install.yml --skip-tags epel --ask-become-pass
+ansible-playbook role_install.yml
 ```
 
-For Red Hat/Rocky Linux
+Then install powerline and all prerequisites
+You will need the sudo password to use this playbook
 
 ```
-ansible-playbook powerline_install.yml --ask-become-pass
+ansible-playbook powerline_install.yml -K
 ```

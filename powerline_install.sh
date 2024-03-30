@@ -30,6 +30,7 @@ else
                     git \
                     powerline \
                     powerline-fonts
+		    ansible-vim
                   ;;
                 rocky)
                   echo "distro is $OS_VERS"
@@ -42,6 +43,7 @@ else
                     git \
                     powerline \
                     powerline-fonts
+		    ansible-vim
                   ;;
                 *)
                   echo "This script only works for rhel/fedora/rocky distros"
