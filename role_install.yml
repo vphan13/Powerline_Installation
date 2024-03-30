@@ -1,0 +1,8 @@
+---
+- name: Role install
+  hosts: localhost
+  tasks:
+    - name: Install epel role
+      ansible.builtin.command: ansible-galaxy install geerlingguy.repo-epel
+      when: (ansible_facts['distribution'] == 'RedHat') or
+            (ansible_facts['distribution'] == 'Rocky')

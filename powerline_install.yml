@@ -5,7 +5,7 @@
  #    - { role: geerlingguy.repo-epel, when: ansible_os_family == 'RedHat' }
   roles:
     - role: geerlingguy.repo-epel
-      when: (ansible_facts['distribution'] == 'RedHat') or 
+      when: (ansible_facts['distribution'] == 'RedHat') or
             (ansible_facts['distribution'] == 'Rocky')
   become: true
   tags: epel
