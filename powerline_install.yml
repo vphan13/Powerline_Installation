@@ -1,8 +1,12 @@
 ---
 - name: EPEL install
   hosts: localhost
+ #  roles:
+ #    - { role: geerlingguy.repo-epel, when: ansible_os_family == 'RedHat' }
   roles:
-    - { role: geerlingguy.repo-epel, when: ansible_os_family == 'RedHat' }
+    - role: geerlingguy.repo-epel
+      when: (ansible_facts['distribution'] == 'RedHat') or 
+            (ansible_facts['distribution'] == 'Rocky')
   become: true
   tags: epel
 
@@ -19,6 +23,7 @@
         - git
         - powerline
         - powerline-fonts
+        - vim-ansible
       become: true
 
     - name: Create .bashrc, .vimrc, and .screenrc
