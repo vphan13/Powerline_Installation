@@ -6,12 +6,13 @@
   become: true
   tags: epel
 
-- hosts: localhost
+- name: Powerline dependencies
+  hosts: localhost
   tasks:
     - name: Installing Dependencies
       ansible.builtin.yum:
         name: "{{ item }}"
-        update_cache: yes
+        update_cache: true
         state: present
       with_items:
         - python3-pip
@@ -21,9 +22,10 @@
       become: true
 
     - name: Create .bashrc, .vimrc, and .screenrc
-      template:
+      ansible.builtin.template:
         src: '{{ item.src }}'
         dest: '{{ item.dest }}'
+        mode: u=rwx
         backup: true
       loop:
         - { src: 'templates/bashrc.j2', dest: '~/.bashrc' }
