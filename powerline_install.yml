@@ -1,8 +1,6 @@
 ---
 - name: EPEL install
   hosts: localhost
- #  roles:
- #    - { role: geerlingguy.repo-epel, when: ansible_os_family == 'RedHat' }
   roles:
     - role: geerlingguy.repo-epel
       when: (ansible_facts['distribution'] == 'RedHat') or
