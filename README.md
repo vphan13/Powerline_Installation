@@ -19,10 +19,7 @@ powerline_screenrc
 ## The following collection is required
 * community.general
 
-## The playbook requires sudo privileges to install rpms/repos; make sure the user running this 
-
-Then install powerline and all prerequisites
-You will need the sudo password to use this playbook or the epel task needs to be run by and account that has sudo
+## The playbook requires sudo privileges to install rpms/repos; make sure the user running this is in the sudoers file
 
 ```
 ansible-playbook powerline_install.yml --tags epel -K
