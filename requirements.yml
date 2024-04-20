@@ -1,0 +1,8 @@
+---
+collections:
+  - name: community.general
+    source: https://galaxy.ansible.com
+
+roles:
+  - name: geerlingguy.repo-epel
+    source: https://galaxy.ansible.com

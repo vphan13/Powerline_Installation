@@ -1,4 +1,16 @@
 ---
+- name: Playbook Prereqs
+  hosts: localhost
+  tasks:
+    - name: Install community collection
+      ansible.builtin.command: ansible-galaxy collection install -r requirements.yml
+
+    - name: Install epel role
+      ansible.builtin.command: ansible-galaxy role install -r requirements.yml
+      when: (ansible_facts['distribution'] == 'RedHat') or
+            (ansible_facts['distribution'] == 'Rocky')
+
+
 - name: EPEL install
   hosts: localhost
   roles:
