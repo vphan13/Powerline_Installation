@@ -29,5 +29,5 @@ ansible-playbook powerline_install.yml --ask-become-pass
 Then run the user_config.yml playbook as a normal user to configure
 .bashrc, .vimrc, and .screenrc
 ```
-ansible-playbook user_config.yml --skip-tags epel
+ansible-playbook user_config.yml
 ```
