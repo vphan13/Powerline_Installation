@@ -15,18 +15,15 @@ powerline_screenrc
 
 # Ansible Playbook
 ## The ansible playbook depends on the following role if this is a Rocky or RHEL distro
-* geerlingguy.repo-epel 
-## The following collection is required
-* community.general
 
 ## The playbook requires sudo privileges to install rpms/repos; make sure the user running this is in the sudoers file
 
 ```
-ansible-playbook powerline_install.yml --tags epel -K
+ansible-playbook powerline_install.yml --ask-become-pass
 ```
 
-Then run the playbook skipping the epel task
-
+Then run the user_config.yml playbook as a normal user to configure
+.bashrc, .vimrc, and .screenrc
 ```
-ansible-playbook powerline_install.yml --skip-tags epel
+ansible-playbook user_config.yml --skip-tags epel
 ```

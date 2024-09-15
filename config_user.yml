@@ -1,0 +1,5 @@
+---
+- name: User config
+  hosts: localhost
+  roles:
+    - role: powerline
