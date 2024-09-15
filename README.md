@@ -15,8 +15,9 @@ powerline_screenrc
 
 # Ansible Playbook
 ## The ansible playbook depends on the following role if this is a Rocky or RHEL distro
-geerlinguy.epel
-community.collections
+* geerlinguy.epel
+* community.collections
+
 Both of the above are installed by the powerline_install.yml
 
 ## The playbook requires sudo privileges to install rpms/repos; make sure the user running this is in the sudoers file
