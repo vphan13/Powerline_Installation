@@ -3,7 +3,8 @@ Installs powerline rpms, configures bash, vim, and screenrc
 
 # Usage
 ## Shell script 
-The powerline_install.sh shell script is meant to be source and the functions run individually
+If you don't have ansible installed, you can use the powerline_install.sh shell script 
+It is meant to be source and the functions run individually
 
 ```
 source powerline_install.sh
