@@ -1,15 +1,14 @@
 ---
-- name: Playbook Prereqs
+- name: Role install
   hosts: localhost
   tasks:
-    - name: Install community collection
-      ansible.builtin.command: ansible-galaxy collection install -r requirements.yml
-
     - name: Install epel role
-      ansible.builtin.command: ansible-galaxy role install -r requirements.yml
+      ansible.builtin.command: ansible-galaxy install geerlingguy.repo-epel
       when: (ansible_facts['distribution'] == 'RedHat') or
             (ansible_facts['distribution'] == 'Rocky')
 
+    - name: Install community general role
+      ansible.builtin.command: ansible-galaxy collection install community.general
 
 - name: EPEL install
   hosts: localhost
@@ -17,6 +16,7 @@
     - role: geerlingguy.repo-epel
       when: (ansible_facts['distribution'] == 'RedHat') or
             (ansible_facts['distribution'] == 'Rocky')
+    - role: 
   become: true
   tags: epel
 
@@ -35,16 +35,3 @@
         - powerline-fonts
         - vim-ansible
       become: true
-
-    - name: Create .bashrc, .vimrc, and .screenrc
-      ansible.builtin.template:
-        src: '{{ item.src }}'
-        dest: '{{ item.dest }}'
-        mode: u=rwx
-        force: true
-        backup: true
-      loop:
-        - { src: 'templates/bashrc.j2', dest: '{{ ansible_env.HOME }}/.bashrc' }
-        - { src: 'templates/vimrc.j2', dest: '{{ ansible_env.HOME }}/.vimrc' }
-        - { src: 'templates/screenrc.j2', dest: '{{ ansible_env.HOME }}/.screenrc' }
-      tags: dotfiles

@@ -1,4 +1,6 @@
 # Powerline_Installation
+
+## Description
 Installs powerline rpms, configures bash, vim, and screenrc
 
 # Usage
@@ -14,8 +16,8 @@ powerline_vim
 powerline_screenrc
 ```
 
-# Ansible Playbook
-## The ansible playbook depends on the following role if this is a Rocky or RHEL distro
+## Ansible Playbook
+### The ansible playbook depends on the following role if this is a Rocky or RHEL distro
 * geerlinguy.epel
 * community.collections
 
@@ -32,3 +34,7 @@ Then run the user_config.yml playbook as a normal user to configure
 ```
 ansible-playbook user_config.yml
 ```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

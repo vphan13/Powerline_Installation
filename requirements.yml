@@ -6,3 +6,6 @@ collections:
 roles:
   - name: geerlingguy.repo-epel
     source: https://galaxy.ansible.com
+
+#  - name: powerline
+#    source: https://github.com/bcdonadio/ansible-powerline/archive/master.tar.gz
