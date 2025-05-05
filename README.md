@@ -11,6 +11,9 @@ It is meant to be source and the functions run individually
 ```
 source powerline_install.sh
 powerline_prereq  #This needs to be run as root/sudo
+###
+The following are run as the unprivileged user you want to configure
+deploy_plugins
 powerline_bash
 powerline_vim
 powerline_screenrc
@@ -26,13 +29,7 @@ Both of the above are installed by the powerline_install.yml
 ## The playbook requires sudo privileges to install rpms/repos; make sure the user running this is in the sudoers file
 
 ```
-ansible-playbook powerline_install.yml --ask-become-pass
-```
-
-Then run the user_config.yml playbook as a normal user to configure
-.bashrc, .vimrc, and .screenrc
-```
-ansible-playbook user_config.yml
+ansible-playbook -i inventory.yaml -e "username=<name of user to configure>" powerline_install.yml
 ```
 
 ## License

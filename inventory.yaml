@@ -1,0 +1,16 @@
+cryosparc_cluster:
+  children:
+    master:
+    workers:
+
+master:
+  hosts:
+    cryomastervm:	
+
+workers:
+  hosts:
+    spack:
+    gpu4:
+    gpu7:
+    gpu8:
+   
