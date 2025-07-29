@@ -29,8 +29,8 @@ else
                     python3-pip \
                     git \
                     powerline \
-                    powerline-fonts
-		    ansible-vim
+                    powerline-fonts \
+		    vim-ansible
                   ;;
                 rocky)
                   echo "distro is $OS_VERS"
@@ -42,8 +42,8 @@ else
                     python3-pip \
                     git \
                     powerline \
-                    powerline-fonts
-		    ansible-vim
+                    powerline-fonts \
+		    vim-ansible
                   ;;
                 *)
                   echo "This script only works for rhel/fedora/rocky distros"
